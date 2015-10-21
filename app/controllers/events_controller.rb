@@ -5,7 +5,8 @@ class EventsController < ApplicationController
   protect_from_forgery with: :exception
 
   def index
-    response = HTTParty.get('http://conventioncalendar.com/view/event-list/85?startDate=2015-10-21')
+    today = Time.now.strftime('%Y-%m-%d')
+    response = HTTParty.get('http://conventioncalendar.com/view/event-list/85?startDate=' + today)
     doc = Nokogiri::HTML(response)
 
     @convention_list = doc.css('.cc-list').map do |convention|
