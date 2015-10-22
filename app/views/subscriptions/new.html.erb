@@ -1,0 +1,4 @@
+Give me yo number and I'll text you about crowds:
+<%= form_for :subscription, url: {action: "create"} do %>
+  <%= text_field_tag(:phone_number) %>
+<% end %>
