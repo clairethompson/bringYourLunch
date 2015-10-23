@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag "application", media: "all" %>
+<table>
+  <tr class="row">
+    <td class="col">Start Date</td>
+    <td class="col">End Date</td>
+    <td class="col">Attendance</td>
+  </tr>
+  <% @events.each do |event| %>
+    <tr class="row">
+      <td class="col"><%= event[:start_date] %></td>
+      <td class="col"><%= event[:end_date] %></td>
+      <td class="col"><%= event[:attendance] %></td>
+    </tr>
+  <% end %>
+</table>

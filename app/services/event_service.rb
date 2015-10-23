@@ -1,4 +1,3 @@
-
 class EventService
   def get_events
     today = Time.now.strftime('%Y-%m-%d')
@@ -12,10 +11,13 @@ class EventService
       start_date = Date.parse(date_parts[1] + ' ' + date_parts[3])
       end_date = Date.parse(date_parts[2] + ' ' + date_parts[3])
 
+      event_text = convention.css('.cc-list-event').text.delete!("\n").squeeze(' ')
+      attendance = event_text.match(/.* - ([\d]*) est\. attendees/)[1].to_i
+
       {
           start_date: start_date,
           end_date: end_date,
-          attendance: convention.css('.cc-list-event').text.tr('^0-9', '').to_i
+          attendance: attendance
       }
     end
   end

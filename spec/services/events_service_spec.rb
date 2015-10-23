@@ -32,6 +32,16 @@ describe EventService do
         expect(response[0][:attendance]).to eq(8000)
       end
     end
+
+    describe 'when there is a number in the event title' do
+      it 'still gives the right number of attendees' do
+        Timecop.freeze(test_time) do
+          response = EventService.new.get_events
+          expect(response[4][:attendance]).to eq(20000)
+          expect(response[5][:attendance]).to eq(60000)
+        end
+      end
+    end
   end
 
   describe '#get_tomorrows_events' do
