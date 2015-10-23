@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class Subscription < ActiveRecord::Base
   before_save { self.phone_number = self.phone_number.tr('^0-9', '')}
 
   VALID_PHONE_NUMBER_REGEX = /\A(\+0?1\s)?\(?\d{3}\)? ?-?[\s.-]?\d{3}[\s.|-]?\d{4}\z/

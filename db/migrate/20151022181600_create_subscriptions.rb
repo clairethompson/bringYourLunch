@@ -1,6 +1,6 @@
-class CreateUsers < ActiveRecord::Migration
+class CreateSubscriptions < ActiveRecord::Migration
   def change
-    create_table :users do |t|
+    create_table :subscriptions do |t|
       t.string :phone_number
 
       t.timestamps null: false

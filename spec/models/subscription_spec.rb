@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Subscription, type: :model do
   before :each do
-    @user = User.new(phone_number: '4564564567')
+    @user = Subscription.new(phone_number: '4564564567')
   end
 
   it 'should be valid' do
@@ -34,7 +34,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'should be unique from other numbers' do
-      same_number_user = User.new(phone_number: '456-456-4567')
+      same_number_user = Subscription.new(phone_number: '456-456-4567')
       @user.save
       expect(same_number_user).not_to be_valid
     end
